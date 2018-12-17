@@ -1,7 +1,7 @@
 <template>
   <div class="sc-chat-window">
     <Header
-      :title="title"
+      :participant="title"
       :imageUrl="titleImageUrl"
       :colors="colors"
       @userList="handleUserListToggle"
@@ -119,6 +119,7 @@ export default {
 <style scoped>
 .sc-chat-window {
   max-height: 590px;
+  height:590px;
   background: white;
   display: flex;
   flex-direction: column;

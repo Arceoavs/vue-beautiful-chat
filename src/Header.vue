@@ -1,18 +1,19 @@
 <template>
   <div class="sc-header" :style="{background: colors.header.bg, color: colors.header.text}">
-    <img class="sc-header--img" :src="imageUrl" alt="" v-if="imageUrl" />
-    <div class="sc-header--title"> {{title}} </div>
+    <img class="sc-header--img" :src="imageUrl" alt v-if="imageUrl">
+    <div class="sc-header--title">Ihr Chat mit
+      <div class="font-weight-bold provider">{{participant}}</div>
+    </div>
   </div>
 </template>
 <script>
-
 export default {
   props: {
     imageUrl: {
       type: String,
       required: true
     },
-    title: {
+    participant: {
       type: String
     },
     colors: {
@@ -20,8 +21,7 @@ export default {
       required: true
     }
   },
-  methods: {
-  },
+  methods: {},
   data() {
     return {
       inUserList: false
@@ -30,6 +30,10 @@ export default {
 }
 </script>
 <style scoped>
+.provider{
+  display: inline;
+  
+}
 .sc-header {
   min-height: 75px;
   position: relative;

@@ -1,19 +1,18 @@
 <template>
-    <ChatWindow
-      :messageList="messageList"
-      :onUserInputSubmit="onMessageWasSent"
-      :participants="participants"
-      :title="chatWindowTitle"
-      :titleImageUrl="titleImageUrl"
-      :isOpen="isOpen"
-      :showEmoji="showEmoji"
-      :showFile="showFile"
-      :placeholder="placeholder"
-      :showTypingIndicator="showTypingIndicator"
-      :colors="colors"
-      :alwaysScrollToBottom="alwaysScrollToBottom"
-      :messageStyling="messageStyling"
-    />
+  <ChatWindow
+    :messageList="messageList"
+    :onUserInputSubmit="onMessageWasSent"
+    :participants="participants"
+    :title="chatWindowTitle"
+    :titleImageUrl="titleImageUrl"
+    :showEmoji="showEmoji"
+    :showFile="showFile"
+    :placeholder="placeholder"
+    :showTypingIndicator="showTypingIndicator"
+    :colors="colors"
+    :alwaysScrollToBottom="alwaysScrollToBottom"
+    :messageStyling="messageStyling"
+  />
 </template>
 <script>
 import ChatWindow from './ChatWindow.vue'
@@ -23,15 +22,6 @@ export default {
     showEmoji: {
       type: Boolean,
       default: false
-    },
-    isOpen: {
-      type: Boolean,
-      required: true,
-      default: true
-    },
-    open: {
-      type: Function,
-      required: true
     },
     showFile: {
       type: Boolean,
@@ -127,12 +117,7 @@ export default {
       if (this.title !== '') {
         return this.title
       }
-
-      if (this.participants.length > 1) {
-        return 'Ihr Chat mit ' + this.participants[0].name + ' und anderen'
-      } else {
-        return 'Ihr Chat mit ' + this.participants[0].name
-      }
+      return this.participants[0].name
     }
   },
   components: {
