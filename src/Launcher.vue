@@ -85,6 +85,9 @@ export default {
             bg: '#f86a2d',
             text: '#ffffff'
           },
+          launcher: {
+            bg: '#ffffff'
+          },
           messageList: {
             bg: '#ffffff'
           },

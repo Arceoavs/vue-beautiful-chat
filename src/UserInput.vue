@@ -130,11 +130,7 @@ export default {
       }
     },
     _handleEmojiPicked (emoji) {
-      this.onSubmit({
-        author: 'me',
-        type: 'emoji',
-        data: { emoji }
-      })
+      this.$refs.userInput.textContent = this.$refs.userInput.textContent + emoji;
     },
     _handleFileSubmit (file) {
       this.file = file
@@ -157,7 +153,7 @@ export default {
 }
 
 .sc-user-input--text {
-  width: 300px;
+  width: 85%;
   resize: none;
   border: none;
   outline: none;
@@ -187,11 +183,12 @@ export default {
 }
 
 .sc-user-input--buttons {
-  width: 100px;
-  position: absolute;
-  right: 30px;
+  width: 15%;
+  position: relative;
   height: 100%;
   display: flex;
+  float: right;
+  margin-right: 5px;
 }
 
 .sc-user-input--button:first-of-type {

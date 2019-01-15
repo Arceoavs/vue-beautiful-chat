@@ -1,7 +1,7 @@
 {
   "name": "vue-beautiful-foxchat",
-  "version": "2.2.3",
-  "description": "A simple and beautiful Vue chat component backend agnostic.",
+  "version": "2.3",
+  "description": "Eine backend- unabhängige Implementation einer Chat- Komponente",
   "main": "./src/index.js",
   "repository": {
     "type": "git",

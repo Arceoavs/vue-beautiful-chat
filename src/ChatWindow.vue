@@ -1,11 +1,11 @@
 <template>
   <div class="sc-chat-window">
-    <Header
+    <!-- <Header
       :participant="title"
       :imageUrl="titleImageUrl"
       :colors="colors"
       @userList="handleUserListToggle"
-    />
+    />-->
     <UserList v-if="showUserList" :participants="participants"/>
     <MessageList
       v-if="!showUserList"
@@ -21,7 +21,6 @@
       :showEmoji="showEmoji"
       :onSubmit="onUserInputSubmit"
       :suggestions="getSuggestions()"
-      :showFile="showFile"
       :placeholder="placeholder"
       :colors="colors"
     />
@@ -118,11 +117,13 @@ export default {
 
 <style scoped>
 .sc-chat-window {
-  max-height: 590px;
-  height:590px;
+  max-height: 527px;
+  height: 527px;
   background: white;
   display: flex;
   flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .sc-message--me {
