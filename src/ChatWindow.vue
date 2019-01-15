@@ -117,8 +117,8 @@ export default {
 
 <style scoped>
 .sc-chat-window {
-  max-height: 527px;
-  height: 527px;
+  max-height: 650px;
+  height: 650px;
   background: white;
   display: flex;
   flex-direction: column;
