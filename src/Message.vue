@@ -1,18 +1,43 @@
 <template>
   <div class="sc-message">
-    <div class="sc-message--content" :class="{
+    <div
+      class="sc-message--content"
+      :class="{
         sent: message.author === 'me',
         received: message.author !== 'me' && message.type !== 'system',
         system: message.type === 'system'
-      }">
-      <div v-if="message.type !== 'system'" :title="authorName" class="sc-message--avatar" :style="{
+      }"
+    >
+      <div
+        v-if="message.type !== 'system'"
+        :title="authorName"
+        class="sc-message--avatar"
+        :style="{
         backgroundImage: `url(${chatImageUrl})`
-      }" v-tooltip="message.author"></div>
-      <TextMessage v-if="message.type === 'text'" :data="message.data" :messageColors="determineMessageColors()" :messageStyling="messageStyling" />
-      <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data" />
-      <FileMessage v-else-if="message.type === 'file'" :data="message.data" :messageColors="determineMessageColors()" />
-      <TypingMessage v-else-if="message.type === 'typing'" :messageColors="determineMessageColors()" />
-      <SystemMessage v-else-if="message.type === 'system'" :data="message.data" :messageColors="determineMessageColors()" />
+      }"
+        v-tooltip="message.author"
+      ></div>
+      <TextMessage
+        v-if="message.type === 'text'"
+        :data="message.data"
+        :messageColors="determineMessageColors()"
+        :messageStyling="messageStyling"
+      />
+      <EmojiMessage v-else-if="message.type === 'emoji'" :data="message.data"/>
+      <FileMessage
+        v-else-if="message.type === 'file'"
+        :data="message.data"
+        :messageColors="determineMessageColors()"
+      />
+      <TypingMessage
+        v-else-if="message.type === 'typing'"
+        :messageColors="determineMessageColors()"
+      />
+      <SystemMessage
+        v-else-if="message.type === 'system'"
+        :data="message.data"
+        :messageColors="determineMessageColors()"
+      />
     </div>
   </div>
 </template>
@@ -26,10 +51,8 @@ import SystemMessage from './SystemMessage.vue'
 import chatIcon from './assets/chat-icon.svg'
 
 export default {
-  data () {
-    return {
-
-    }
+  data() {
+    return {}
   },
   components: {
     TextMessage,
@@ -73,15 +96,17 @@ export default {
       }
     },
     determineMessageColors() {
-      return this.message.author === 'me' ? this.sentColorsStyle() : this.receivedColorsStyle()
+      return this.message.author === 'me'
+        ? this.sentColorsStyle()
+        : this.receivedColorsStyle()
     }
   }
 }
 </script>
 <style lang="scss">
 .sc-message {
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-right: 20px;
+  padding-left: 20px;
   padding-bottom: 10px;
 }
 
@@ -102,38 +127,28 @@ export default {
   display: none;
 }
 
-.sc-message--avatar {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-  min-width: 30px;
-  min-height: 30px;
-  border-radius: 50%;
-  align-self: center;
-  margin-right: 15px;
-}
-
 .sc-message--meta {
   font-size: xx-small;
   margin-bottom: 0px;
+  margin-top: -10px;
   color: white;
   text-align: center;
 }
 
 @media (max-width: 450px) {
-  .sc-message {
-    width: 80%;
-  }
+  // .sc-message {
+  //   //width: 80%;
+  // }
 }
 
 .sc-message--text {
   padding: 5px 20px;
-  border-radius: 6px;
+  border-radius: 5px;
   font-weight: 300;
   font-size: 14px;
-  line-height: 1.4;
-  white-space: pre-wrap;
-  -webkit-font-smoothing: subpixel-antialiased
+  line-height: 1.2;
+  // white-space: pre-wrap;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 .sc-message--content.sent .sc-message--text {
   color: white;
@@ -170,7 +185,7 @@ export default {
     border-color: black;
     z-index: 1;
   }
-  &[x-placement^="top"] {
+  &[x-placement^='top'] {
     margin-bottom: 5px;
     .tooltip-arrow {
       border-width: 5px 5px 0 5px;
@@ -183,7 +198,7 @@ export default {
       margin-bottom: 0;
     }
   }
-  &[x-placement^="bottom"] {
+  &[x-placement^='bottom'] {
     margin-top: 5px;
     .tooltip-arrow {
       border-width: 0 5px 5px 5px;
@@ -196,7 +211,7 @@ export default {
       margin-bottom: 0;
     }
   }
-  &[x-placement^="right"] {
+  &[x-placement^='right'] {
     margin-left: 5px;
     .tooltip-arrow {
       border-width: 5px 5px 5px 0;
@@ -209,7 +224,7 @@ export default {
       margin-right: 0;
     }
   }
-  &[x-placement^="left"] {
+  &[x-placement^='left'] {
     margin-right: 5px;
     .tooltip-arrow {
       border-width: 5px 0 5px 5px;
@@ -225,21 +240,21 @@ export default {
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
-    transition: opacity .15s, visibility .15s;
+    transition: opacity 0.15s, visibility 0.15s;
   }
   &[aria-hidden='false'] {
     visibility: visible;
     opacity: 1;
-    transition: opacity .15s;
+    transition: opacity 0.15s;
   }
   &.info {
-    $color: rgba(#004499, .9);
+    $color: rgba(#004499, 0.9);
     .tooltip-inner {
       background: $color;
       color: white;
       padding: 24px;
       border-radius: 5px;
-      box-shadow: 0 5px 30px rgba(black, .1);
+      box-shadow: 0 5px 30px rgba(black, 0.1);
     }
     .tooltip-arrow {
       border-color: $color;
@@ -252,7 +267,7 @@ export default {
       color: black;
       padding: 24px;
       border-radius: 5px;
-      box-shadow: 0 5px 30px rgba(black, .1);
+      box-shadow: 0 5px 30px rgba(black, 0.1);
     }
     .popover-arrow {
       border-color: $color;
