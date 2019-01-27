@@ -55,6 +55,7 @@ export default {
   border: none;
   padding: 0px;
   margin: 0px;
+  margin-top: 5px;
   outline: none;
   cursor: pointer;
 }

@@ -34,6 +34,7 @@
         class="sc-user-input--text"
         ref="userInput"
         :style="{color: colors.userInput.text}"
+        id="userInput"
       ></div>
       <div class="sc-user-input--buttons">
         <div class="sc-user-input--button"></div>
@@ -148,6 +149,7 @@ export default {
     },
     _handleEmojiPicked(emoji) {
       this.$refs.userInput.textContent = this.$refs.userInput.textContent + emoji
+      document.getElementById("userInput").focus()
     },
     _handleFileSubmit(file) {
       this.file = file
@@ -170,7 +172,7 @@ export default {
 }
 
 .sc-user-input--text {
-  width: 85%;
+  width: 100%;
   resize: none;
   border: none;
   outline: none;
@@ -200,12 +202,13 @@ export default {
 }
 
 .sc-user-input--buttons {
-  width: 15%;
+  width: 100px;
   position: relative;
   height: 100%;
   display: flex;
-  float: right;
-  margin-right: 5px;
+  margin-left: auto;
+  order: 2;
+
 }
 
 .sc-user-input--button:first-of-type {
@@ -220,6 +223,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center !important;
 }
 
 .sc-user-input.active {
